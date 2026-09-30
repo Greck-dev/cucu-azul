@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Fredy Cucu 💙</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+    --blue:#168cff;
+    --blue2:#54c7ff;
+    --blue3:#9be7ff;
+    --dark:#030711;
+    --dark2:#071426;
+    --white:#f5fbff;
+}
+
+html,body{width:100%;height:100%}
+
+body{
+    overflow:hidden;
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:radial-gradient(circle at 50% 25%,#10284a 0%,#071426 35%,#02050b 75%,#000 100%);
+    color:white;
+}
+
+/* ESCENA */
+.scene{position:relative;width:100%;height:100vh;overflow:hidden}
+
+/* ESTRELLAS */
+.stars{position:absolute;inset:0}
+.star{
+    position:absolute;width:3px;height:3px;border-radius:50%;background:white;
+    box-shadow:0 0 6px white,0 0 12px var(--blue2);
+    animation:twinkle 2s infinite alternate;
+}
+@keyframes twinkle{
+    from{opacity:.15;transform:scale(.6)}
+    to{opacity:1;transform:scale(1.5)}
+}
+
+/* LUNA */
+.moon{
+    position:absolute;top:8%;right:10%;width:90px;height:90px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%,#fff 0%,#d9efff 60%,#a9c7dd 100%);
+    box-shadow:0 0 25px rgba(210,240,255,.8),0 0 80px rgba(65,170,255,.25);
+}
+
+/* PANTALLA DE INICIO */
+.intro{
+    position:absolute;inset:0;z-index:100;
+    display:flex;justify-content:center;align-items:center;
+    background:radial-gradient(circle,rgba(20,60,105,.95),rgba(1,5,12,.99));
+    transition:opacity 1s ease,visibility 1s ease;
+}
+.intro.hide{opacity:0;visibility:hidden;pointer-events:none}
+.intro-content{text-align:center;padding:30px}
+.intro-car{
+    font-size:75px;display:block;margin-bottom:20px;
+    animation:carIntro 1.2s ease-in-out infinite alternate;
+    filter:drop-shadow(0 0 20px var(--blue));
+}
+@keyframes carIntro{
+    from{transform:translateX(-12px) rotate(-2deg)}
+    to{transform:translateX(12px) rotate(2deg)}
+}
+.intro h1{
+    font-size:clamp(30px,7vw,65px);letter-spacing:5px;text-transform:uppercase;
+    text-shadow:0 0 15px var(--blue),0 0 40px rgba(0,140,255,.5);
+}
+.intro p{margin-top:12px;color:#bfeaff;font-size:15px;letter-spacing:3px}
+.open-button{
+    margin-top:35px;padding:15px 35px;
+    border:1px solid var(--blue2);border-radius:50px;
+    background:linear-gradient(135deg,rgba(20,120,255,.35),rgba(0,40,90,.7));
+    color:white;font-size:15px;font-weight:bold;letter-spacing:3px;cursor:pointer;
+    box-shadow:0 0 15px rgba(30,150,255,.4),inset 0 0 15px rgba(50,180,255,.1);
+    transition:.3s;
+}
+.open-button:hover{transform:scale(1.08);box-shadow:0 0 30px rgba(40,170,255,.8)}
+
+/* CONTENIDO */
+.content{
+    position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+    opacity:0;transform:scale(.95);
+    transition:opacity 1.2s ease,transform 1.2s ease;
+}
+.content.show{opacity:1;transform:scale(1)}
+
+/* TITULO */
+.title{position:absolute;top:6%;z-index:10;text-align:center}
+.title .small{color:var(--blue2);font-size:12px;letter-spacing:6px;text-transform:uppercase}
+.title h1{
+    margin-top:8px;font-size:clamp(42px,9vw,90px);font-weight:900;letter-spacing:7px;
+    background:linear-gradient(180deg,white,#8edcff 45%,#168cff);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 0 15px rgba(40,160,255,.6));
+}
+.title p{margin-top:5px;color:#d8f5ff;font-size:clamp(12px,2vw,18px);letter-spacing:3px}
+
+/* RAMO */
+.bouquet{
+    position:absolute;width:min(650px,95vw);height:470px;
+    left:50%;bottom:5%;transform:translateX(-50%);z-index:5;
+}
+
+/* TALLOS */
+.stem{
+    position:absolute;width:5px;height:230px;bottom:55px;left:50%;
+    transform-origin:bottom;
+    background:linear-gradient(90deg,#123c28,#4b8e55,#163d25);
+    border-radius:10px;box-shadow:0 0 5px rgba(70,180,100,.2);
+}
+.stem1{transform:rotate(-25deg)}
+.stem2{transform:rotate(-13deg)}
+.stem3{transform:rotate(0)}
+.stem4{transform:rotate(14deg)}
+.stem5{transform:rotate(27deg)}
+.stem6{transform:rotate(-38deg)}
+.stem7{transform:rotate(38deg)}
+
+/* FLORES */
+.flower{
+    position:absolute;width:110px;height:110px;z-index:4;
+    animation:flowerFloat 4s ease-in-out infinite;
+}
+.f1{left:14%;top:30%;animation-delay:-1s}
+.f2{left:30%;top:13%;animation-delay:-2s}
+.f3{left:43%;top:4%}
+.f4{left:57%;top:13%;animation-delay:-1.5s}
+.f5{left:72%;top:31%;animation-delay:-2.5s}
+.f6{left:25%;top:42%;transform:scale(.75)}
+.f7{left:65%;top:42%;transform:scale(.75)}
+
+@keyframes flowerFloat{
+    0%,100%{transform:translateY(0) rotate(-2deg)}
+    50%{transform:translateY(-8px) rotate(3deg)}
+}
+
+.petal{
+    position:absolute;width:48px;height:70px;left:31px;top:5px;
+    border-radius:50% 50% 45% 45%;
+    background:radial-gradient(circle at 50% 75%,#0068d9,#168cff 45%,#73d5ff 100%);
+    transform-origin:50% 100%;
+    box-shadow:inset 0 0 10px rgba(255,255,255,.25),0 0 12px rgba(30,150,255,.4);
+}
+.petal:nth-child(1){transform:rotate(0deg) translateY(-5px)}
+.petal:nth-child(2){transform:rotate(60deg) translateY(-5px)}
+.petal:nth-child(3){transform:rotate(120deg) translateY(-5px)}
+.petal:nth-child(4){transform:rotate(180deg) translateY(-5px)}
+.petal:nth-child(5){transform:rotate(240deg) translateY(-5px)}
+.petal:nth-child(6){transform:rotate(300deg) translateY(-5px)}
+
+.flower-center{
+    position:absolute;width:42px;height:42px;left:34px;top:34px;border-radius:50%;
+    background:radial-gradient(circle,#fff 0%,#bdefff 35%,#168cff 75%);
+    box-shadow:0 0 20px #5bcaff;z-index:3;
+}
+
+/* HOJAS */
+.leaf{
+    position:absolute;width:60px;height:25px;border-radius:100% 0 100% 0;
+    background:linear-gradient(135deg,#5bc56d,#124e2b);opacity:.9;
+}
+.leaf1{left:31%;bottom:30%;transform:rotate(25deg)}
+.leaf2{left:62%;bottom:28%;transform:rotate(155deg)}
+.leaf3{left:42%;bottom:20%;transform:rotate(65deg)}
+.leaf4{left:54%;bottom:35%;transform:rotate(210deg)}
+
+/* PAPEL DEL RAMO */
+.wrap{
+    position:absolute;left:50%;bottom:0;transform:translateX(-50%);
+    width:340px;height:180px;
+    background:linear-gradient(135deg,rgba(15,45,75,.95),rgba(4,12,24,.98));
+    clip-path:polygon(8% 0,92% 0,100% 100%,0 100%);
+    border-top:2px solid rgba(80,190,255,.5);
+    box-shadow:0 -15px 50px rgba(0,120,255,.15);
+}
+.wrap-line{
+    position:absolute;left:50%;width:2px;height:100%;
+    background:linear-gradient(transparent,rgba(100,200,255,.4),transparent);
+}
+
+/* AUTO DE CARRERA */
+.racing-car{
+    position:absolute;left:50%;bottom:38%;width:210px;height:90px;
+    transform:translateX(-50%) rotate(-2deg);z-index:8;
+    animation:raceCarFloat 2s ease-in-out infinite;
+}
+@keyframes raceCarFloat{
+    0%,100%{transform:translateX(-50%) translateY(0) rotate(-2deg)}
+    50%{transform:translateX(-50%) translateY(-6px) rotate(-1deg)}
+}
+.car-body{
+    position:absolute;bottom:20px;left:5px;width:200px;height:48px;
+    background:linear-gradient(160deg,#ffdc18,#ff9d00 55%,#b85200);
+    clip-path:polygon(0 70%,12% 43%,30% 35%,43% 5%,70% 0,82% 30%,95% 38%,100% 75%,92% 100%,10% 100%);
+    border:1px solid #fff080;
+}
+.car-cabin{
+    position:absolute;left:70px;bottom:58px;width:80px;height:35px;background:#050b12;
+    clip-path:polygon(15% 100%,30% 0,72% 0,100% 100%);
+    border:1px solid #ffc400;
+}
+.car-window{
+    position:absolute;left:77px;bottom:63px;width:67px;height:25px;
+    background:linear-gradient(135deg,#5dd4ff,#0a1e2d);
+    clip-path:polygon(15% 100%,27% 10%,70% 10%,90% 100%);
+}
+.car-wheel{
+    position:absolute;width:31px;height:31px;bottom:5px;border-radius:50%;
+    background:radial-gradient(circle,#aaa 0 15%,#222 16% 35%,#050505 36% 100%);
+    border:4px solid #111;box-shadow:0 0 0 2px #555;
+}
+.car-wheel.w1{left:30px}
+.car-wheel.w2{right:25px}
+.car-spoiler{
+    position:absolute;right:-4px;bottom:56px;width:45px;height:10px;
+    background:#080808;border-top:2px solid #ffca00;transform:skewX(-15deg);
+}
+.car-light{
+    position:absolute;width:25px;height:6px;background:white;border-radius:50%;
+    box-shadow:0 0 8px white,0 0 18px #fff;
+}
+.car-light.front{right:5px;bottom:42px}
+
+/* CARRETERA */
+.ground{
+    position:absolute;left:0;right:0;bottom:0;height:28%;
+    background:linear-gradient(180deg,transparent,#020305 25%,#000 100%);
+}
+
+/* VELOCIDAD */
+.speed{
+    position:absolute;height:3px;
+    background:linear-gradient(90deg,transparent,#72d9ff,transparent);
+    opacity:.5;animation:speedMove 1.4s linear infinite;
+}
+.speed:nth-child(1){width:150px;top:45%;left:-150px}
+.speed:nth-child(2){width:220px;top:62%;left:-220px;animation-delay:.4s}
+.speed:nth-child(3){width:130px;top:72%;right:-130px;animation-delay:.7s}
+@keyframes speedMove{
+    from{transform:translateX(0);opacity:0}
+    30%{opacity:.8}
+    to{transform:translateX(700px);opacity:0}
+}
+
+/* PARTICULAS */
+.particle{
+    position:absolute;width:5px;height:5px;border-radius:50%;background:#7de0ff;
+    box-shadow:0 0 10px #45c9ff;animation:particle 3s linear infinite;
+}
+.particle:nth-child(1){left:15%;bottom:25%}
+.particle:nth-child(2){left:30%;bottom:35%;animation-delay:.8s}
+.particle:nth-child(3){left:70%;bottom:30%;animation-delay:1.2s}
+.particle:nth-child(4){left:85%;bottom:22%;animation-delay:1.8s}
+@keyframes particle{
+    from{transform:translateY(30px) scale(.5);opacity:0}
+    30%{opacity:1}
+    to{transform:translateY(-130px) translateX(-80px) scale(1.5);opacity:0}
+}
+
+/* MENSAJE */
+.message{
+    position:absolute;bottom:3%;left:50%;transform:translateX(-50%);
+    width:min(600px,90%);text-align:center;z-index:20;
+}
+.message-main{
+    font-size:clamp(20px,4vw,34px);font-weight:600;color:white;
+    text-shadow:0 0 15px rgba(80,190,255,.5);
+}
+.message-sub{margin-top:8px;font-size:clamp(11px,2vw,15px);color:#a9ddf5;letter-spacing:1px}
+
+/* CORAZONES */
+.heart{position:absolute;color:#57caff;font-size:18px;animation:heartFloat 5s linear infinite;opacity:0}
+.h1{left:25%;bottom:5%}
+.h2{left:70%;bottom:0;animation-delay:2s}
+.h3{left:45%;bottom:3%;animation-delay:3.2s}
+@keyframes heartFloat{
+    0%{opacity:0;transform:translateY(0) scale(.5)}
+    20%{opacity:1}
+    100%{opacity:0;transform:translateY(-300px) translateX(40px) scale(1.3)}
+}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+    .moon{width:55px;height:55px;right:7%}
+    .title{top:7%}
+    .title h1{font-size:40px;letter-spacing:4px}
+    .title .small{font-size:8px;letter-spacing:3px}
+    .title p{font-size:10px;letter-spacing:2px}
+    .bouquet{width:100%;height:430px;bottom:7%}
+    .flower{width:80px;height:80px}
+    .petal{width:36px;height:55px;left:22px}
+    .flower-center{width:32px;height:32px;left:25px;top:25px}
+    .f1{left:7%;top:34%}
+    .f2{left:24%;top:18%}
+    .f3{left:40%;top:10%}
+    .f4{left:56%;top:18%}
+    .f5{left:73%;top:34%}
+    .f6{left:17%;top:47%}
+    .f7{left:63%;top:47%}
+    .wrap{width:280px;height:145px}
+    .racing-car{transform:translateX(-50%) scale(.75) rotate(-2deg);bottom:39%}
+    @keyframes raceCarFloat{
+        0%,100%{transform:translateX(-50%) translateY(0) scale(.75) rotate(-2deg)}
+        50%{transform:translateX(-50%) translateY(-5px) scale(.75) rotate(-1deg)}
+    }
+    .message{bottom:2%}
+    .message-main{font-size:20px}
+    .message-sub{font-size:10px}
+}
+
+@media(max-width:420px){
+    .title h1{font-size:32px}
+    .title p{font-size:8px}
+    .bouquet{bottom:8%;transform:translateX(-50%) scale(.9)}
+    .racing-car{bottom:40%}
+    .wrap{width:250px}
+}
+
+@media(max-height:650px){
+    .title{top:3%}
+    .bouquet{bottom:-3%;transform:translateX(-50%) scale(.8)}
+    .message{bottom:1%}
+}
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+    <!-- PANTALLA DE INICIO -->
+    <div class="intro" id="intro">
+        <div class="intro-content">
+            <span class="intro-car">🏎️</span>
+            <h1>Para Fredy Cucu</h1>
+            <p>Hay algo especial esperándote...</p>
+            <button class="open-button" onclick="openGift()">✨ TOCA PARA ABRIR ✨</button>
+        </div>
+    </div>
+
+    <!-- ESTRELLAS -->
+    <div class="stars">
+        <span class="star" style="left:5%;top:15%"></span>
+        <span class="star" style="left:12%;top:28%"></span>
+        <span class="star" style="left:19%;top:9%"></span>
+        <span class="star" style="left:27%;top:22%"></span>
+        <span class="star" style="left:35%;top:13%"></span>
+        <span class="star" style="left:44%;top:28%"></span>
+        <span class="star" style="left:52%;top:8%"></span>
+        <span class="star" style="left:61%;top:22%"></span>
+        <span class="star" style="left:69%;top:11%"></span>
+        <span class="star" style="left:77%;top:28%"></span>
+        <span class="star" style="left:86%;top:18%"></span>
+        <span class="star" style="left:94%;top:32%"></span>
+    </div>
+
+    <!-- LUNA -->
+    <div class="moon"></div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="content" id="content">
+
+        <!-- TITULO -->
+        <section class="title">
+            <div class="small">Un pequeño detalle para</div>
+            <h1>FREDY CUCU</h1>
+            <p>🩵 FLORES • VELOCIDAD • MOMENTOS 🏎️</p>
+        </section>
+
+        <!-- VELOCIDAD -->
+        <div class="speed"></div>
+        <div class="speed"></div>
+        <div class="speed"></div>
+
+        <!-- SUELO -->
+        <div class="ground"></div>
+
+        <!-- RAMO -->
+        <div class="bouquet">
+
+            <!-- TALLOS -->
+            <div class="stem stem1"></div>
+            <div class="stem stem2"></div>
+            <div class="stem stem3"></div>
+            <div class="stem stem4"></div>
+            <div class="stem stem5"></div>
+            <div class="stem stem6"></div>
+            <div class="stem stem7"></div>
+
+            <!-- HOJAS -->
+            <div class="leaf leaf1"></div>
+            <div class="leaf leaf2"></div>
+            <div class="leaf leaf3"></div>
+            <div class="leaf leaf4"></div>
+
+            <!-- FLORES -->
+            <div class="flower f1">
+                <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+                <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+                <div class="flower-center"></div>
+            </div>
+
+            <div class="flower f2">
+                <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+                <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+                <div class="flower-center"></div>
+            </div>
+
+            <div class="flower f3">
+                <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+                <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+                <div class="flower-center"></div>
+            </div>
+
+            <div class="flower f4">
+                <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+                <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+                <div class="flower-center"></div>
+            </div>
+
+            <div class="flower f5">
+                <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+                <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+                <div class="flower-center"></div>
+            </div>
+
+            <div class="flower f6">
+                <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+                <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+                <div class="flower-center"></div>
+            </div>
+
+            <div class="flower f7">
+                <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+                <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+                <div class="flower-center"></div>
+            </div>
+
+            <!-- PAPEL -->
+            <div class="wrap">
+                <div class="wrap-line"></div>
+            </div>
+
+            <!-- AUTO DE CARRERA -->
+            <div class="racing-car">
+                <div class="car-body"></div>
+                <div class="car-cabin"></div>
+                <div class="car-window"></div>
+                <div class="car-wheel w1"></div>
+                <div class="car-wheel w2"></div>
+                <div class="car-spoiler"></div>
+                <div class="car-light front"></div>
+            </div>
+
+        </div>
+
+        <!-- PARTICULAS -->
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+
+        <!-- CORAZONES -->
+        <div class="heart h1">💙</div>
+        <div class="heart h2">💙</div>
+        <div class="heart h3">💙</div>
+
+        <!-- MENSAJE -->
+        <div class="message">
+            <div class="message-main">Para Fredy Cucu 🩵</div>
+            <div class="message-sub">
+                Que nunca te falten motivos para sonreír,
+                caminos por recorrer y momentos que recordar.
+            </div>
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+function openGift(){
+    const intro = document.getElementById("intro");
+    const content = document.getElementById("content");
+
+    intro.classList.add("hide");
+
+    setTimeout(() => {
+        content.classList.add("show");
+    }, 500);
+
+    createExplosion();
+}
+
+/* EFECTO DE PARTICULAS AL ABRIR */
+function createExplosion(){
+    const scene = document.querySelector(".scene");
+
+    for(let i = 0; i < 45; i++){
+        const particle = document.createElement("span");
+
+        particle.style.position = "absolute";
+        particle.style.left = "50%";
+        particle.style.top = "50%";
+        particle.style.width = Math.random() * 5 + 2 + "px";
+        particle.style.height = particle.style.width;
+        particle.style.borderRadius = "50%";
+        particle.style.background = i % 2 === 0 ? "#48caff" : "#ffffff";
+        particle.style.boxShadow = "0 0 12px #42caff";
+        particle.style.zIndex = "200";
+
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 100 + Math.random() * 400;
+        const x = Math.cos(angle) * distance;
+        const y = Math.sin(angle) * distance;
+
+        particle.animate(
+            [
+                {
+                    transform: "translate(-50%,-50%) scale(1)",
+                    opacity: 1
+                },
+                {
+                    transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(0)`,
+                    opacity: 0
+                }
+            ],
+            {
+                duration: 900 + Math.random() * 800,
+                easing: "cubic-bezier(.2,.8,.3,1)",
+                fill: "forwards"
+            }
+        );
+
+        scene.appendChild(particle);
+
+        setTimeout(() => particle.remove(), 1800);
+    }
+}
+</script>
+
+</body>
+</html>
